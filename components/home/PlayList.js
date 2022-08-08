@@ -7,8 +7,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Songs} from "./Context";
+import {tableRowClasses} from "@mui/material/TableRow";
+import { red } from '@mui/material/colors';
 
 // import "../../styles/playList.css"
 
@@ -16,13 +18,23 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
         color: theme.palette.common.white,
+        borderColor: "gray"
     },
     [`&.${tableCellClasses.body}`]: {
         fontSize: 14,
+        color: "gray",
+        border: "none"
     },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    [`&.${tableRowClasses.body}`]: {
+        fontSize: 14,
+        '&:hover': {
+            backgroundColor: 'gray',
+        },
+        border: "none"
+    },
     // hide last border
     '&:last-child td, &:last-child th': {
     },
@@ -41,7 +53,6 @@ export default function PlayList() {
         setTextColor("blue");
     }
 
-
     return (
         <div className="">
             <TableContainer component={Paper} sx={{
@@ -57,8 +68,13 @@ export default function PlayList() {
                     borderRadius: 2
                 }
             }}>
-                <Table sx={{
-                    height: "max-content"
+                <Table stickyHeader  sx={{
+                    height: "max-content",
+                    backgroundColor: "black",
+                    color: "white",
+                    minWidth: 650,
+
+
                 }} aria-label="customized table" className="playList">
                     <TableHead>
                         <TableRow className="custom-th">
@@ -69,9 +85,7 @@ export default function PlayList() {
                     </TableHead>
                     <TableBody>
                         {DataSongs.map((row, index) => (
-                            <StyledTableRow key={row.name} className="customMusic" onClick={() => handlePlaySong(row.id)}
-                                            style={{color: textColor}}
-                            >
+                            <StyledTableRow hover variant="body"  key={index} onClick={() => handlePlaySong(row.id)}>
                                 <StyledTableCell align="center">{index + 1}</StyledTableCell>
                                 <StyledTableCell align="left">{row.name}</StyledTableCell>
                                 <StyledTableCell align="center">{row.author}</StyledTableCell>

@@ -31,6 +31,5 @@ function App() {
         </Songs.Provider>
     );
 }
-+3
 
 export default App;
