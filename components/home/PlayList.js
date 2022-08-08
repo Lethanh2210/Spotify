@@ -10,6 +10,8 @@ import Paper from '@mui/material/Paper';
 import {useContext, useEffect, useState} from "react";
 import {Songs} from "./Context";
 import {tableRowClasses} from "@mui/material/TableRow";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 import { red } from '@mui/material/colors';
 
 // import "../../styles/playList.css"
@@ -40,9 +42,20 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
+const styles = (theme) => ({
+    StyledTableRow: {
+        "&.Mui-selected, &.Mui-selected:hover": {
+            "& > .MuiTableCell-root": {
+                color: "teal"
+            }
+        }
+    }
+});
 
 
-export default function PlayList() {
+
+ function PlayList(props) {
+    const { classes } = props;
     const [song1, setSong] = useState();
     const {DataSongs, handleSetSong} = useContext(Songs);
     const [textColor, setTextColor] = useState("black");
@@ -85,7 +98,11 @@ export default function PlayList() {
                     </TableHead>
                     <TableBody>
                         {DataSongs.map((row, index) => (
-                            <StyledTableRow hover variant="body"  key={index} onClick={() => handlePlaySong(row.id)}>
+                            <StyledTableRow hover variant="body"  key={index} onClick={() => handlePlaySong(row.id)}
+                                            selected={song1 === row.id}
+                                            className={classes.StyledTableRow}
+
+                            >
                                 <StyledTableCell align="center">{index + 1}</StyledTableCell>
                                 <StyledTableCell align="left">{row.name}</StyledTableCell>
                                 <StyledTableCell align="center">{row.author}</StyledTableCell>
@@ -98,4 +115,10 @@ export default function PlayList() {
 
     );
 }
+
+PlayList.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(PlayList);
 

@@ -26,6 +26,7 @@ const Player = () => {
                 showJumpControls={false}
                 onClickNext={handleClickNext}
                 onClickPrevious={handleClickPrevious}
+                header={`Now Playing: ${song[0].name}`}
             />
         </div>
     );

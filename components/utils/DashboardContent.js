@@ -196,8 +196,8 @@ function DashboardContent(props) {
                             component="main"
                             sx={{
                                 backgroundColor: (theme) =>
-                                    theme.palette.mode === '#121212'
-                                        ? theme.palette.grey[100]
+                                    theme.palette.mode === '#123131'
+                                        ? theme.palette.grey[900]
                                         : theme.palette.grey[900],
                                 flexGrow: 1,
                                 height: '100vh',
@@ -205,7 +205,7 @@ function DashboardContent(props) {
                             }}
                         >
                             <Toolbar />
-                            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+                            <Container maxWidth="lg" sx={{ mt: 1, mb: 4 }}>
 
                                 {/*<CustomizedTables />*/}
                                 {props.children}
