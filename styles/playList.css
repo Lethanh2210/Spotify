@@ -1,0 +1,26 @@
+/*.customMusic:hover{*/
+/*    background: gray !important;*/
+/*}*/
+
+table th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #242725 !important;
+    color: #a4a2a2 !important;
+}
+
+table td{
+    background-color: #1a1c1b !important;
+    border: none !important;
+    color: white !important;
+}
+table {
+    z-index: 1
+}
+
+.MuiTableRow-root:hover{
+    background-color: green !important;
+}
+

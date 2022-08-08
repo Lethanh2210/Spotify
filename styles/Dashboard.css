@@ -1,0 +1,26 @@
+.toolbar{
+    background-color: black !important;
+}
+
+.itemSet{
+    color: #b3b3b3 !important;
+
+}
+
+.buttonItem:hover {
+    color: white !important;
+}
+
+.rhap_container {
+    background-color: #181818 !important;
+}
+
+.rhap_time {
+    color: white !important;
+}
+
+.rhap_progress-container:hover > .rhap_progress-bar > .rhap_progress-filled{
+    background-color: #1db954 !important;
+}
+
+
