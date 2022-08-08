@@ -19,6 +19,10 @@ table td{
 table {
     z-index: 1
 }
+table tr:hover{
+    color: black
+
+}
 
 .MuiTableRow-root:hover{
     background-color: green !important;
