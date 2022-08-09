@@ -9,3 +9,9 @@
     color: rgb(255, 255, 255) !important;
 
 }
+.avatar {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
