@@ -1,4 +1,4 @@
-import App from "../components/home/playListHome";
+import App from "../components/playlistHome/playListHome";
 
 export default function Home() {
   return (

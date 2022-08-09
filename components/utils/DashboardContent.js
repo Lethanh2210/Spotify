@@ -16,11 +16,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import {mainListItems, secondaryListItems} from "./listItem";
-import Player from "../home/AudioPlayer";
-// import 'bootstrap/dist/css/bootstrap.css';
+import Player from "../playlistHome/AudioPlayer";
 import BasicMenu from "./userButton";
 import Spotify from "../../public/Spotify.png"
 import Image from 'next/image'
+import DataSongs from "../../data/songs.json";
 import axios from "axios"
 
 
@@ -63,6 +63,7 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 
+
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
         '& .MuiDrawer-paper': {
@@ -73,7 +74,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.enteringScreen,
             }),
-            boxSizing: 'border-box',
             ...(!open && {
                 overflowX: 'hidden',
                 transition: theme.transitions.create('width', {
@@ -93,15 +93,7 @@ const mdTheme = createTheme();
 
 function DashboardContent(props) {
     const [open, setOpen] = React.useState(false);
-    // const [song, setSong] = useState(DataSongs);
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const open1 = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     const toggleDrawer = () => {
         setOpen(!open);
@@ -110,7 +102,6 @@ function DashboardContent(props) {
 
 
     return (
-        // <Songs.Provider value={{DataSongs, song, handleSetSong}}>
             <ThemeProvider theme={mdTheme}>
                 <Box sx={{ display: 'flex' }}>
                     <CssBaseline />
@@ -141,9 +132,8 @@ function DashboardContent(props) {
                                 sx={{ flexGrow: 100 }}
                             >
                                 <div>
-                                    {/*<i className="fa fa-spotify" style={{fontSize:'25px',color:'green'}}>Logo</i>*/}
+
                                     <Image src={Spotify} alt="1111" width={120} height={30}/>
-                                    {/*<span style={{margin: "25px", fontSize: "25px",height: '40px', maxWidth: '131px',width: '100%'}}>Spotify</span>*/}
                                 </div>
                             </Typography>
                             <IconButton color="inherit">
@@ -170,14 +160,10 @@ function DashboardContent(props) {
                                     </IconButton>
                             </Toolbar>
 
-                            {/*<Divider />*/}
                             <List component="nav" style={{color: '#b3b3b3', backgroundColor: "black"}}>
                                 {mainListItems}
                                 {secondaryListItems}
                             </List>
-                            {/*<Divider sx={{ my: 1 }} />*/}
-                            {/*<Divider/>*/}
-                            {/*<hr/>*/}
                         </Drawer>
                     </div>
                         <Box
@@ -194,10 +180,7 @@ function DashboardContent(props) {
                         >
                             <Toolbar />
                             <Container maxWidth="lg" sx={{ mt: 1, mb: 4 }}>
-
-                                {/*<CustomizedTables />*/}
                                 {props.children}
-
                             </Container>
                         </Box>
                     <Player />
