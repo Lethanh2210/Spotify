@@ -107,14 +107,7 @@ function DashboardContent(props) {
         setOpen(!open);
     };
 
-    // const handleSetSong = (idSong) => {
-    //     const song = DataSongs.filter(song => song.id === idSong);
-    //     if (song === []) {
-    //         setSong(DataSongs[0]);
-    //     } else {
-    //         setSong(song)
-    //     }
-    // }
+
 
     return (
         // <Songs.Provider value={{DataSongs, song, handleSetSong}}>
