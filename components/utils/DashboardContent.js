@@ -21,6 +21,8 @@ import Player from "../home/AudioPlayer";
 import BasicMenu from "./userButton";
 import Spotify from "../../public/Spotify.png"
 import Image from 'next/image'
+import axios from "axios"
+
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import '../../styles/Dashboard.css'
@@ -60,13 +62,6 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-// const Item = styled(Paper)(({theme}) => ({
-//     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-//     ...theme.typography.body2,
-//     padding: theme.spacing(1),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-// }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
