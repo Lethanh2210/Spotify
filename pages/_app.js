@@ -1,16 +1,20 @@
 import '../styles/globals.css'
 import '../styles/Dashboard.css'
-import '../styles/playList.css'
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'react-h5-audio-player/lib/styles.css';
-
+import '../styles/playList.css';
+import Login from "../components/Login/Login";
 import {SessionProvider} from "next-auth/react"
+import {useEffect, useState} from "react";
 
 export default function MyApp({Component, pageProps: {session, ...pageProps},}) {
+    const [token,setToken] = useState('')
+    console.log(token)
+    useEffect(()=>{
+        const token =  window.localStorage.getItem('token');
+        setToken(token)
+    })
     return (
         <SessionProvider session={session}>
-            <Component {...pageProps} />
+            {token ? <Component {...pageProps} /> : <Login/> }
         </SessionProvider>
     )
 }

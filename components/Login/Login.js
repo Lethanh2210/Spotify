@@ -64,26 +64,15 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Spotify React</h1>
-                {!token ?
-                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-                        to Spotify</a>
-                    : <button onClick={logout}>Logout</button>}
-
-                {token ?
-                    <form onSubmit={searchArtists}>
-                        <input type="text" onChange={e => setSearchKey(e.target.value)}/>
-                        <button type={"submit"}>Search</button>
-                    </form>
-
-                    : <h2>Please login</h2>
-                }
-
-                {renderArtists()}
-
-            </header>
+        <div className="bg-black h-screen flex flex-col items-center pt-40 space-y-8">
+            <img
+                src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
+                alt=""
+            />
+            <a
+                className="text-white py-4 px-6 rounded-full bg-[#1db954] transition duration-300 ease-out border border-transparent uppercase font-bold text-xs md:text-base tracking-wider hover:scale-105 hover:bg-[#0db146]"
+                href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+                to Spotify</a>
         </div>
     );
 }
