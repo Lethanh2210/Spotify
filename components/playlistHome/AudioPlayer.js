@@ -7,6 +7,7 @@ import {Songs} from "./Context";
 const Player = () => {
     const {song, handleSetSong} = useContext(Songs);
 
+
     const handleClickNext = () => {
         handleSetSong(song[0].id + 1);
     }
@@ -14,6 +15,7 @@ const Player = () => {
     const handleClickPrevious = () => {
         handleSetSong(song[0].id - 1);
     }
+
 
     return (
         <div style={{position: 'fixed', bottom: 0, width: '100%', left: 0}}>

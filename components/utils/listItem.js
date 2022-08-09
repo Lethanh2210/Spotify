@@ -2,8 +2,6 @@ import * as React from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
@@ -11,37 +9,38 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 
+
 export const mainListItems = (
     <React.Fragment>
-        <ListItemButton className="buttonItem">
+        <ListItemButton className="buttonItem" href="/home">
             <ListItemIcon className="itemSet">
-                <HomeIcon />
+                <HomeIcon/>
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="Home"/>
         </ListItemButton>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <SearchIcon />
-            </ListItemIcon >
-            <ListItemText primary="Search" />
+                <SearchIcon/>
+            </ListItemIcon>
+            <ListItemText primary="Search"/>
         </ListItemButton>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <PeopleIcon />
+                <PeopleIcon/>
             </ListItemIcon>
-            <ListItemText primary="Customers" />
+            <ListItemText primary="Customers"/>
         </ListItemButton>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <BarChartIcon />
+                <BarChartIcon/>
             </ListItemIcon>
-            <ListItemText primary="Reports" />
+            <ListItemText primary="Reports"/>
         </ListItemButton>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <LayersIcon />
+                <LayersIcon/>
             </ListItemIcon>
-            <ListItemText primary="Integrations" />
+            <ListItemText primary="Integrations"/>
         </ListItemButton>
     </React.Fragment>
 );
@@ -53,21 +52,21 @@ export const secondaryListItems = (
         {/*</ListSubheader>*/}
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <AssignmentIcon />
+                <AssignmentIcon/>
             </ListItemIcon>
-            <ListItemText primary="Current month" />
+            <ListItemText primary="Current month"/>
         </ListItemButton>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <AssignmentIcon />
+                <AssignmentIcon/>
             </ListItemIcon>
-            <ListItemText primary="Last quarter" />
+            <ListItemText primary="Last quarter"/>
         </ListItemButton>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <AssignmentIcon />
+                <AssignmentIcon/>
             </ListItemIcon>
-            <ListItemText primary="Year-end sale" />
+            <ListItemText primary="Year-end sale"/>
         </ListItemButton>
     </React.Fragment>
 );

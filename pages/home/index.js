@@ -1,9 +1,9 @@
-import App from "../../components/home/playListHome";
+import Home from "../../components/home/index";
 
-export default function Home() {
+export default function App() {
     return (
         <div >
-            <App/>
+            <Home/>
         </div>
     )
 }
