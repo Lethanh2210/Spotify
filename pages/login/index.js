@@ -2,7 +2,7 @@ import Login from "../../components/Login/Login";
 
 export default function LoginHome() {
     return (
-        <div >
+        <div>
             <Login />
         </div>
     )
