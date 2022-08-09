@@ -17,7 +17,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import {mainListItems, secondaryListItems} from "./listItem";
 import Player from "../home/AudioPlayer";
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import BasicMenu from "./userButton";
 import Spotify from "../../public/Spotify.png"
 import Image from 'next/image'
