@@ -17,7 +17,6 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import {mainListItems, secondaryListItems} from "./listItem";
 import Player from "../home/AudioPlayer";
-// import 'bootstrap/dist/css/bootstrap.css';
 import BasicMenu from "./userButton";
 import Spotify from "../../public/Spotify.png"
 import Image from 'next/image'
@@ -60,13 +59,7 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-// const Item = styled(Paper)(({theme}) => ({
-//     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-//     ...theme.typography.body2,
-//     padding: theme.spacing(1),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-// }));
+
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
@@ -112,14 +105,7 @@ function DashboardContent(props) {
         setOpen(!open);
     };
 
-    // const handleSetSong = (idSong) => {
-    //     const song = DataSongs.filter(song => song.id === idSong);
-    //     if (song === []) {
-    //         setSong(DataSongs[0]);
-    //     } else {
-    //         setSong(song)
-    //     }
-    // }
+
 
     return (
         // <Songs.Provider value={{DataSongs, song, handleSetSong}}>
