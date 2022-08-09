@@ -7,8 +7,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Songs} from "./Context";
+import {tableRowClasses} from "@mui/material/TableRow";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import { red } from '@mui/material/colors';
 
 // import "../../styles/playList.css"
 
@@ -16,21 +20,42 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
         color: theme.palette.common.white,
+        borderColor: "gray"
     },
     [`&.${tableCellClasses.body}`]: {
         fontSize: 14,
+        color: "gray",
+        border: "none"
     },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    [`&.${tableRowClasses.body}`]: {
+        fontSize: 14,
+        '&:hover': {
+            backgroundColor: 'gray',
+        },
+        border: "none"
+    },
     // hide last border
     '&:last-child td, &:last-child th': {
     },
 }));
 
+const styles = (theme) => ({
+    StyledTableRow: {
+        "&.Mui-selected, &.Mui-selected:hover": {
+            "& > .MuiTableCell-root": {
+                color: "teal"
+            }
+        }
+    }
+});
 
 
-export default function PlayList() {
+
+ function PlayList(props) {
+    const { classes } = props;
     const [song1, setSong] = useState();
     const {DataSongs, handleSetSong} = useContext(Songs);
     const [textColor, setTextColor] = useState("black");
@@ -40,7 +65,6 @@ export default function PlayList() {
         setSong(idSong);
         setTextColor("blue");
     }
-
 
     return (
         <div className="">
@@ -57,8 +81,13 @@ export default function PlayList() {
                     borderRadius: 2
                 }
             }}>
-                <Table sx={{
-                    height: "max-content"
+                <Table stickyHeader  sx={{
+                    height: "max-content",
+                    backgroundColor: "black",
+                    color: "white",
+                    minWidth: 650,
+
+
                 }} aria-label="customized table" className="playList">
                     <TableHead>
                         <TableRow className="custom-th">
@@ -69,8 +98,10 @@ export default function PlayList() {
                     </TableHead>
                     <TableBody>
                         {DataSongs.map((row, index) => (
-                            <StyledTableRow key={row.name} className="customMusic" onClick={() => handlePlaySong(row.id)}
-                                            style={{color: textColor}}
+                            <StyledTableRow hover variant="body"  key={index} onClick={() => handlePlaySong(row.id)}
+                                            selected={song1 === row.id}
+                                            className={classes.StyledTableRow}
+
                             >
                                 <StyledTableCell align="center">{index + 1}</StyledTableCell>
                                 <StyledTableCell align="left">{row.name}</StyledTableCell>
@@ -84,4 +115,10 @@ export default function PlayList() {
 
     );
 }
+
+PlayList.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(PlayList);
 
