@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/*.card-container{*/
+/*    width: 120px;*/
+/*    height: 200px;*/
+/*    margin-top: 20px;*/
+/*    display: grid;*/
+/*}*/
+
+.image-avatar{
+    width: 192px;
+    height: 270px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.card-search img{
+    width: 160px;
+    height: 160px;
+}
+.card-search :hover{
+    cursor: pointer;
+}
+.bg-f :hover{
+    background-color:#282828;
+}
+

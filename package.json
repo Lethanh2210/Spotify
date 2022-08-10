@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@coreui/react": "^4.3.1",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@headlessui/react": "^1.4.1",

@@ -8,22 +8,27 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
+import Link from "next/link";
 
 
 export const mainListItems = (
     <React.Fragment>
-        <ListItemButton className="buttonItem" href="/home">
+        <Link passHref href={'/home'}>
+        <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
                 <HomeIcon/>
             </ListItemIcon>
             <ListItemText primary="Home"/>
         </ListItemButton>
-        <ListItemButton className="buttonItem">
+        </Link>
+        <Link passHref href={'/search'}>
+        <ListItemButton className="buttonItem" href="/search">
             <ListItemIcon className="itemSet">
                 <SearchIcon/>
             </ListItemIcon>
             <ListItemText primary="Search"/>
         </ListItemButton>
+        </Link>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
                 <PeopleIcon/>
