@@ -7,7 +7,6 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
@@ -170,7 +169,7 @@ function DashboardContent(props) {
                             </List>
                         </Drawer>
                     </div>
-                        <Box
+                        <Box type={'sm'}
                             component="main"
                             sx={{
                                 backgroundColor: '#121212',
