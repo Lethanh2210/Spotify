@@ -57,6 +57,11 @@ export default function BasicMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const logout = () => {
+        setToken("")
+        window.localStorage.removeItem("token")
+        window.location = '/login'
+    }
 
     return (
         <div>
@@ -86,7 +91,7 @@ export default function BasicMenu() {
             >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose} href="/login">Logout</MenuItem>
+                <MenuItem href='/login' onClick={logout}>Logout</MenuItem>
             </Menu>
         </div>
     );
