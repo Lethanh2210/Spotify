@@ -21,6 +21,8 @@ import Spotify from "../../public/Spotify.png"
 import Image from 'next/image'
 import DataSongs from "../../data/songs.json";
 import axios from "axios"
+import { useRouter } from 'next/router'
+
 
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -93,6 +95,8 @@ const mdTheme = createTheme();
 function DashboardContent(props) {
     const [open, setOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const path = useRouter().pathname
+
 
     const toggleDrawer = () => {
         setOpen(!open);
@@ -131,8 +135,8 @@ function DashboardContent(props) {
                                 sx={{ flexGrow: 100 }}
                             >
                                 <div>
-
-                                    <Image src={Spotify} alt="1111" width={120} height={30}/>
+                                    <Image src={Spotify} alt="1111" width={100} height={30}/>
+                                    {path==='/search' ? <span style={{color:'white'}}>thinh</span> : <></> }
                                 </div>
                             </Typography>
                             <IconButton color="inherit">
@@ -168,10 +172,7 @@ function DashboardContent(props) {
                         <Box type={'sm'}
                             component="main"
                             sx={{
-                                backgroundColor: (theme) =>
-                                    theme.palette.mode === '#123131'
-                                        ? theme.palette.grey[900]
-                                        : theme.palette.grey[900],
+                                backgroundColor: '#121212',
                                 flexGrow: 1,
                                 height: '100vh',
                                 overflow: 'auto',
