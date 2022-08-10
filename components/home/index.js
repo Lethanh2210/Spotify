@@ -5,6 +5,7 @@ import DashboardContent from "../utils/DashboardContent";
 import Card from "./card";
 import {Grid} from "@mui/material";
 import authors from "../../data/author.json"
+import Typography from "@mui/material/Typography";
 
 // const authors = ["Alan Walker", 'LT2k', "Justin Bieber", "Camila Cabello","The Chainsmokers","The Chainsmokers","The Chainsmokers","The Chainsmokers","The Chainsmokers"]
 
@@ -18,6 +19,7 @@ function App() {
 
     const handleSetSong = (idSong) => {
         const song = DataSongs.filter(song => song.id === idSong);
+
         if (song.length === 0) {
             setSong(DataSongs[0]);
         } else {
@@ -25,19 +27,25 @@ function App() {
         }
     }
 
+
     return (
         <Songs.Provider value={{DataSongs, song, handleSetSong}}>
-            <div>
-                <DashboardContent>
-                    <Grid container mt={2} ml={-5} >
-                    {authors.map((author, index) => (
-                        <Grid item xs={1.8} key={index}  mt={3}>
-                        <Card author={author}/>
-                        </Grid>
-                    ) )}
-                    </Grid>
-                </DashboardContent>
-            </div>
+                    <div style={{overflowY: 'scroll'}}>
+                        <DashboardContent>
+                            <Typography variant="h3" component="h4" mt={2} ml={-5} sx={{
+                                color:  'white',
+                            }}>
+                                List Artist
+                            </Typography>;
+                            <Grid container mt={2} ml={-5} >
+                                {authors.map((author, index) => (
+                                    <Grid item xs={1.8} key={index}  mt={3}>
+                                        <Card author={author} />
+                                    </Grid>
+                                ) )}
+                            </Grid>
+                        </DashboardContent>
+                    </div>
         </Songs.Provider>
     );
 }

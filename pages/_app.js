@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import '../styles/Dashboard.css'
 import '../styles/playList.css';
+import '../styles/scrollBar.css'
 import Login from "../components/Login/Login";
 import {SessionProvider} from "next-auth/react"
 import {useEffect, useState} from "react";
