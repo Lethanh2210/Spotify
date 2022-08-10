@@ -28,7 +28,6 @@ export default function BasicMenu() {
 
 
     }, [token])
-    console.log(images)
     useEffect( () => {
 
        getUserInfo().then(res => {

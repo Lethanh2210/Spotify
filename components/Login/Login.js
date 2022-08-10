@@ -11,18 +11,9 @@ function App() {
     const [searchKey, setSearchKey] = useState("")
     const [artists, setArtists] = useState([])
 
-    // const getToken = () => {
-    //     let urlParams = new URLSearchParams(window.location.hash.replace("#","?"));
-    //     let token = urlParams.get('access_token');
-    // }
-
     useEffect(() => {
         const hash = window.location.hash
         let token = window.localStorage.getItem("token")
-
-        // getToken()
-
-
         if (!token && hash) {
             token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
 
