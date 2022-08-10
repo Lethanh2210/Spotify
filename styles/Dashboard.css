@@ -58,4 +58,17 @@
     --decorative-subdued: #292929;
 }
 
+.userName{
+    text-transform: none !important;
+    color: teal !important;
+}
+
+.musicCard:hover{
+    background-color: #282828 !important;
+}
+.musicCard{
+    cursor: pointer;
+}
+
+
 

@@ -72,7 +72,7 @@ export default function BasicMenu() {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             >
-                <h1 style={{color: 'white'}}>{data.display_name}</h1>
+                <h1 style={{color: 'white', }} className="userName">{data.display_name}</h1>
                 &nbsp;
                 {/*<Image src={data.image[0].url} alt="image" width={30} height={30}/>*/}
                 <img aria-hidden="false" draggable="false" loading="eager"
