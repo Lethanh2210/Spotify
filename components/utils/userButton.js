@@ -12,7 +12,6 @@ export default function BasicMenu() {
     const [data,setData] = useState({});
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
-    console.log(data)
 
 
     useEffect(() => {
