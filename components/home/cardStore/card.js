@@ -2,21 +2,22 @@ import {CCard, CCardBody, CCardImage, CCardText} from "@coreui/react";
 import {useEffect, useState} from "react";
 import {useContext} from "react";
 import {Songs} from "../../playlistHome/Context";
+import {AuthorSong} from "../../Context";
+import Link from "next/link";
+
 
 
 function Card(props){
-    const [authorSong, setAuthorSong] = useState([]);
-    const {DataSongs, handleSetSong} = useContext(Songs);
 
+    const {handleSetAuthorSong, authorSong } = useContext(AuthorSong);
     const handleClick = (author) => {
-        const song = DataSongs.filter(song => song.author === author.name);
-        setAuthorSong(song);
-        console.log(authorSong)
+        handleSetAuthorSong(author.name);
     }
 
     return (
-        <CCard style={{ width: '165px', backgroundColor: '#171717', padding: "10px", color: "white" , height: '243px', borderRadius: "3%" }} className="musicCard" onClick={()=> handleClick(props.author)}>
-            <CCardImage orientation="top" src={props.author.image} style={{borderRadius: '50%'}}/>
+        <Link passHref href={`/playlist/author/${props.author.name}`}>
+        <CCard style={{ width: '165px', backgroundColor: '#171717', padding: "10px", color: "white" , height: '260px', borderRadius: "3%" }} className="musicCard" onClick={()=> handleClick(props.author)}>
+            <CCardImage orientation="top" src={props.author.image} style={{borderRadius: '50%', width: "160px", height: "160px"}}/>
             <CCardText style={{marginTop : '15px'}}>
                 {props.author.name}
             </CCardText >
@@ -24,6 +25,7 @@ function Card(props){
                     Artist
             </CCardBody>
         </CCard>
+            </Link>
     )
 }
 

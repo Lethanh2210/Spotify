@@ -8,6 +8,7 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
+import TopicIcon from '@mui/icons-material/Topic';
 import Link from "next/link";
 
 
@@ -29,18 +30,22 @@ export const mainListItems = (
             <ListItemText primary="Search"/>
         </ListItemButton>
         </Link>
+        <Link passHref href={'/playlist'}>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <PeopleIcon/>
+                <TopicIcon/>
             </ListItemIcon>
-            <ListItemText primary="Customers"/>
+            <ListItemText primary="Local Playlist"/>
         </ListItemButton>
+        </Link>
+        <Link passHref href={'/playlist'}>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
                 <BarChartIcon/>
             </ListItemIcon>
             <ListItemText primary="Reports"/>
         </ListItemButton>
+        </Link>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
                 <LayersIcon/>

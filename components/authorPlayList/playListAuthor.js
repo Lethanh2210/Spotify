@@ -8,14 +8,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {useContext, useEffect, useState} from "react";
-import {Songs} from "./Context";
 import {tableRowClasses} from "@mui/material/TableRow";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import { red } from '@mui/material/colors';
-import {AudioSong} from "../Context";
+import {AudioSong, AuthorSong} from "../Context";
 
-// import "../../styles/playList.css"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -55,18 +52,19 @@ const styles = (theme) => ({
 
 
 
- function PlayList(props) {
+function PlayListAuthor(props) {
     const { classes } = props;
     const [song1, setSong] = useState();
-    const {DataSongs, handleSetSong, currentList,song} = useContext(AudioSong);
-    const [textColor, setTextColor] = useState("black");
+    const {handleSetSong, setCurrentList} = useContext(AudioSong);
+    const {authorSong} = useContext(AuthorSong);
 
-    console.log(song, "playlist");
+    useEffect(() =>{
+        setCurrentList(authorSong)
+    })
 
     const handlePlaySong = (idSong) => {
         handleSetSong(idSong);
         setSong(idSong);
-        setTextColor("blue");
     }
 
     return (
@@ -85,7 +83,7 @@ const styles = (theme) => ({
                 }
             }}>
                 <Table stickyHeader  sx={{
-                    height: "90vh",
+                    height: "max-content",
                     backgroundColor: "black",
                     color: "white",
                     minWidth: 650,
@@ -100,10 +98,9 @@ const styles = (theme) => ({
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {currentList.map((row, index) => (
+                        {authorSong.map((row, index) => (
                             <StyledTableRow hover variant="body"  key={index} onClick={() => handlePlaySong(row.id)}
                                             selected={song1 === row.id}
-                                            style={{color: song[0].id === row.id ? "teal" : "gray"}}
                                             className={classes.StyledTableRow}
 
                             >
@@ -120,9 +117,9 @@ const styles = (theme) => ({
     );
 }
 
-PlayList.propTypes = {
+PlayListAuthor.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(PlayList);
+export default withStyles(styles)(PlayListAuthor);
 

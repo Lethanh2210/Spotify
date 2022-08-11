@@ -174,7 +174,7 @@ function DashboardContent(props) {
                             sx={{
                                 backgroundColor: '#121212',
                                 flexGrow: 1,
-                                height: '100vh',
+                                height: '90vh',
                                 overflow: 'auto',
                             }}
                         >
