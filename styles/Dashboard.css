@@ -72,8 +72,16 @@
 }
 
 .card-search{
-    height: 160px !important;
+    height: 140px !important;
     width: 160px !important;
+}
+
+.music-search-card:hover{
+    background-color: #282828 !important;
+}
+
+.css-1wlen6-MuiPaper-root-MuiTableContainer-root{
+    background-color: black  !important;
 }
 
 

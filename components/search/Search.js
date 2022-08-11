@@ -36,19 +36,19 @@ export default function Search() {
     }
     const renderArtists = () => {
         return (
-            <Grid container mt={2} ml={5}>
+            <Grid container mt={0} ml={5} >
                 {artists.map(artist => (
                     <Link passHref href={`/detail/${artist.id}`}>
-                        <Grid key={artist.id} item xs={1.5} ml={5} mt={3}>
+                        <Grid key={artist.id} item xs={1.5} ml={5} mt={3}  zeroMinWidth>
                             <CCard style={{
                                 width: '165px',
                                 cursor: 'pointer',
                                 backgroundColor: '#171717',
                                 padding: "10px",
                                 color: "white",
-                                height: '243px',
+                                height: '260px',
                                 borderRadius: "3%"
-                            }}>
+                            }} className="music-search-card">
                                 <CCardImage orientation="top"
                                             src={artist.images.length > 0 ? artist.images[0].url : "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-0.jpg"}
                                             style={{borderRadius: '50%', width: "160px", height: "160px"}}
@@ -70,7 +70,7 @@ export default function Search() {
 
 
     return (
-        <div>
+        <div style={{marginTop: "-20px"}}>
             <input
             className="search"
             onChange={e => {

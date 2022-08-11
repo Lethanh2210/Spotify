@@ -1,19 +1,30 @@
 import {useContext, useEffect, useState} from "react";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import {Songs} from "./Context";
+import {AudioSong} from "../Context";
 
 
 const Player = () => {
-    const {song, handleSetSong} = useContext(Songs);
+    const {song, handleSetSong, currentList} = useContext(AudioSong);
+
 
 
     const handleClickNext = () => {
-        handleSetSong(song[0].id + 1);
+        const currentIndex = currentList.findIndex(song1 => song1.id === song[0].id);
+        if(currentIndex === currentList.length - 1) {
+            handleSetSong(currentList[0].id)
+        }else{
+            handleSetSong(currentList[currentIndex+1].id);
+        }
     }
 
     const handleClickPrevious = () => {
-        handleSetSong(song[0].id - 1);
+        const currentIndex = currentList.findIndex(song1 => song1.id === song[0].id);
+        if(currentIndex === 0){
+            handleSetSong(currentList[currentList.length-1].id)
+        }else{
+            handleSetSong(currentList[currentIndex-1].id);
+        }
     }
 
 

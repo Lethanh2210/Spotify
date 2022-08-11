@@ -1,30 +1,24 @@
 import {Songs} from "./Context"
 import DataSongs from "../../data/songs.json"
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
 
 import DashboardContent from "../utils/DashboardContent";
 import PlayList from "./PlayList";
+import {AudioSong} from "../Context";
 
 
 
 
 function App() {
-    const [song, setSong] = useState([{
-        url: '',
-        name: 'none'
-    }]);
+    const {setCurrentList} = useContext(AudioSong)
 
-    const handleSetSong = (idSong) => {
-        const song = DataSongs.filter(song => song.id === idSong);
-        if (song.length === 0) {
-            setSong(DataSongs[0]);
-        } else {
-            setSong(song)
-        }
-    }
+    useEffect(() => {
+        setCurrentList(DataSongs)
+    }, [])
+
 
     return (
-        <Songs.Provider value={{DataSongs, song, handleSetSong}}>
+        <Songs.Provider value={{DataSongs}}>
         <div>
             <DashboardContent>
                 <PlayList/>
