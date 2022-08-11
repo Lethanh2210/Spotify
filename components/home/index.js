@@ -2,7 +2,7 @@ import {Songs} from "../playlistHome/Context"
 import DataSongs from "../../data/songs.json"
 import {useState} from "react";
 import DashboardContent from "../utils/DashboardContent";
-import Card from "./card";
+import Card from "./cardStore/card";
 import {Grid} from "@mui/material";
 import authors from "../../data/author.json"
 import Typography from "@mui/material/Typography";
@@ -30,22 +30,22 @@ function App() {
 
     return (
         <Songs.Provider value={{DataSongs, song, handleSetSong}}>
-                    <div style={{overflowY: 'scroll'}}>
                         <DashboardContent>
-                            <Typography variant="h3" component="h4" mt={2} ml={-5} sx={{
+                            <Grid container mt={3} ml={-5}>
+                            <Typography variant="h3" component="h4" mt={2} ml={5} sx={{
                                 color:  'white',
                             }}>
                                 List Artist
                             </Typography>;
-                            <Grid container mt={2} ml={-5} >
+                            <Grid container mt={2} ml={5} >
                                 {authors.map((author, index) => (
-                                    <Grid item xs={1.8} key={index}  mt={3}>
+                                    <Grid item xs={2} key={index}  mt={3}>
                                         <Card author={author} />
                                     </Grid>
                                 ) )}
                             </Grid>
+                            </Grid>
                         </DashboardContent>
-                    </div>
         </Songs.Provider>
     );
 }

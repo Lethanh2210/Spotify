@@ -36,7 +36,7 @@ export default function Search() {
     }
     const renderArtists = () => {
         return (
-            <Grid container mt={2} ml={-5}>
+            <Grid container mt={2} ml={5}>
                 {artists.map(artist => (
                     <Link passHref href={`/detail/${artist.id}`}>
                         <Grid key={artist.id} item xs={1.5} ml={5} mt={3}>
@@ -48,14 +48,16 @@ export default function Search() {
                                 color: "white",
                                 height: '243px',
                                 borderRadius: "3%"
-                            }} className="musicCard">
-                                <CCardImage orientation="top" src={artist.images.length > 0 ? artist.images[0].url : ""}
-                                            style={{borderRadius: '50%', width: 160, height: 160}}/>
+                            }}>
+                                <CCardImage orientation="top"
+                                            src={artist.images.length > 0 ? artist.images[0].url : "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-0.jpg"}
+                                            style={{borderRadius: '50%', width: "160px", height: "160px"}}
+                                            className="card-search"
+                                />
                                 <CCardText style={{marginTop: '15px'}}>
                                     {artist.name}
                                 </CCardText>
-                                <br/>
-                                <CCardBody style={{color: '#9c9c9c', marginTop: '-15px'}}>
+                                <CCardBody style={{color: '#9c9c9c', marginTop: '-20px', marginLeft: "-15px"}}>
                                     Artist
                                 </CCardBody>
                             </CCard>
@@ -70,14 +72,17 @@ export default function Search() {
     return (
         <div>
             <input
-                className="search"
-                onChange={e => {
-                    setSearch(e.target.value)
-                }}
-                type="text"/>
+            className="search"
+            onChange={e => {
+                setSearch(e.target.value);
+                // searchArtists(e).then(() => {
+                // })
+            }}
+            type="text"/>
             <button
-                classNameName="btn-search"
+                className="btn-search"
                 onClick={searchArtists}
+                style={{color: "black", backgroundColor: "white", border: "1px solid black"}}
             >
                 Search
             </button>

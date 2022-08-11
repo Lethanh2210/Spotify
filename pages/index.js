@@ -1,9 +1,11 @@
 import App from "../components/playlistHome/playListHome";
 
+
 export default function Home() {
 
   return (
-    <div >
+
+      <div >
       <App/>
     </div>
   )
