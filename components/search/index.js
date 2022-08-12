@@ -25,7 +25,7 @@ function SearchPage() {
         <Songs.Provider value={{DataSongs, song, handleSetSong}}>
             <div>
                 <DashboardContent>
-                    <Grid container mt={4} ml={-20}>
+                    <Grid container mt={4} ml={-5}>
                         <Search/>
                     </Grid>
                 </DashboardContent>

@@ -29,6 +29,7 @@ import {useEffect, useState} from "react";
 // import '../../styles/Dashboard.css'
 
 
+
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -63,8 +64,9 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 
-const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})(
-    ({theme, open}) => ({
+
+const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+    ({ theme, open }) => ({
         '& .MuiDrawer-paper': {
             position: 'relative',
             whiteSpace: 'nowrap',
@@ -92,32 +94,8 @@ const mdTheme = createTheme();
 
 function DashboardContent(props) {
     const [open, setOpen] = React.useState(false);
-    const [search, setSearch] = useState('');
-    const [token, setToken] = useState('');
-    const [artists, setArtists] = useState([]);
+    const [anchorEl, setAnchorEl] = React.useState(null);
     const path = useRouter().pathname
-
-
-    useEffect(() => {
-        let token = window.localStorage.getItem("token");
-        setToken(token)
-    }, [token])
-    console.log(artists)
-    const searchArtists = async (e) => {
-        e.preventDefault()
-        const {data} = await axios.get("https://api.spotify.com/v1/search", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            },
-            params: {
-                q: search,
-                type: "artist"
-            }
-        })
-
-        setArtists(data.artists.items)
-    }
-
 
 
     const toggleDrawer = () => {
@@ -125,89 +103,91 @@ function DashboardContent(props) {
     };
 
 
+
     return (
-        <ThemeProvider theme={mdTheme}>
-            <Box sx={{display: 'flex'}}>
-                <CssBaseline/>
-                <AppBar position="absolute" open={open}>
-                    <Toolbar
-                        sx={{
-                            pr: '24px',
-                        }}
-                        style={{backgroundColor: "black"}}
-                    >
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={toggleDrawer}
-                            sx={{
-                                marginRight: '36px',
-                                ...(open && {display: 'none'}),
-                            }}
-                        >
-                            <MenuIcon/>
-                        </IconButton>
-                        <Typography
-                            component="h1"
-                            variant="h6"
-                            color="inherit"
-                            noWrap
-                            sx={{flexGrow: 100}}
-                        >
-                            <div>
-                                <Image src={Spotify} alt="1111" width={100} height={30}/>
-                            </div>
-                        </Typography>
-                        <IconButton color="inherit">
-                            <Badge badgeContent={4} color="secondary">
-                                <NotificationsIcon/>
-                            </Badge>
-                        </IconButton>
-                    </Toolbar>
-                </AppBar>
-                <div style={{color: '#b3b3b3', backgroundColor: "black"}}>
-                    <Drawer variant="permanent" open={open} style={{zIndex: 0}} className="toolbar">
+            <ThemeProvider theme={mdTheme}>
+                <Box sx={{ display: 'flex' }}>
+                    <CssBaseline />
+                    <AppBar position="absolute" open={open}>
                         <Toolbar
                             sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'flex-end',
-                                px: [1],
-                                backgroundColor: 'black',
+                                pr: '24px',
                             }}
+                            style={{ backgroundColor: "black"}}
                         >
-                            <BasicMenu/>
-                            <IconButton onClick={toggleDrawer} className="itemSet">
-                                <ChevronLeftIcon/>
+                            <IconButton
+                                edge="start"
+                                color="inherit"
+                                aria-label="open drawer"
+                                onClick={toggleDrawer}
+                                sx={{
+                                    marginRight: '36px',
+                                    ...(open && { display: 'none' }),
+                                }}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography
+                                component="h1"
+                                variant="h6"
+                                color="inherit"
+                                noWrap
+                                sx={{ flexGrow: 100 }}
+                            >
+                                <div>
+                                    <Image src={Spotify} alt="1111" width={100} height={30}/>
+                                    {path==='/search' ? <span style={{color:'white'}}>thinh</span> : <></> }
+                                </div>
+                            </Typography>
+                            <IconButton color="inherit">
+                                <Badge badgeContent={4} color="secondary">
+                                    <NotificationsIcon />
+                                </Badge>
                             </IconButton>
                         </Toolbar>
+                    </AppBar>
+                    <div style={{color: '#b3b3b3', backgroundColor: "black"}}>
+                        <Drawer variant="permanent" open={open} style={{zIndex:0}} className="toolbar"  >
+                            <Toolbar
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'flex-end',
+                                    px: [1],
+                                    backgroundColor: 'black',
+                                }}
+                            >
+                                <BasicMenu/>
+                                    <IconButton onClick={toggleDrawer} className="itemSet">
+                                        <ChevronLeftIcon />
+                                    </IconButton>
+                            </Toolbar>
 
-                        <List component="nav" style={{color: '#b3b3b3', backgroundColor: "black"}}>
-                            {mainListItems}
-                            {secondaryListItems}
-                        </List>
-                    </Drawer>
-                </div>
-                <Box type={'sm'}
-                     component="main"
-                     sx={{
-                         backgroundColor: '#121212',
-                         flexGrow: 1,
-                         height: '100vh',
-                         overflow: 'auto',
-                     }}
-                >
-                    <Toolbar/>
-                    <Container maxWidth="lg" sx={{mt: 1, mb: 4}}>
-                        {props.children}
-                    </Container>
+                            <List component="nav" style={{color: '#b3b3b3', backgroundColor: "black"}}>
+                                {mainListItems}
+                                {secondaryListItems}
+                            </List>
+                        </Drawer>
+                    </div>
+                        <Box type={'sm'}
+                            component="main"
+                            sx={{
+                                backgroundColor: '#121212',
+                                flexGrow: 1,
+                                height: '90vh',
+                                overflow: 'auto',
+                            }}
+                        >
+                            <Toolbar />
+                            <Container maxWidth="lg" sx={{ mt: 1, mb: 4 }}>
+                                {props.children}
+                            </Container>
+                        </Box>
+                    <Player />
                 </Box>
-                <Player/>
-            </Box>
-        </ThemeProvider>
+            </ThemeProvider>
         // </Songs.Provider>
     );
 }
 
-export default DashboardContent;
+export default  DashboardContent;
