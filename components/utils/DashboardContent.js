@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import {styled, createTheme, ThemeProvider} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -21,8 +21,8 @@ import Spotify from "../../public/Spotify.png"
 import Image from 'next/image'
 import DataSongs from "../../data/songs.json";
 import axios from "axios"
-import { useRouter } from 'next/router'
-
+import {useRouter} from 'next/router'
+import {useEffect, useState} from "react";
 
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -47,7 +47,7 @@ const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
+})(({theme, open}) => ({
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
