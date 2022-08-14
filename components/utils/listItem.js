@@ -9,6 +9,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import TopicIcon from '@mui/icons-material/Topic';
+import HeadphonesIcon from '@mui/icons-material/Headphones';
 import Link from "next/link";
 
 
@@ -38,20 +39,20 @@ export const mainListItems = (
             <ListItemText primary="Local Playlist"/>
         </ListItemButton>
         </Link>
-        <Link passHref href={'/playlist'}>
+        <Link passHref href={'/playlist/LT2k'}>
         <ListItemButton className="buttonItem">
             <ListItemIcon className="itemSet">
-                <BarChartIcon/>
+                <HeadphonesIcon/>
             </ListItemIcon>
-            <ListItemText primary="Reports"/>
+            <ListItemText primary="LT2K Music"/>
         </ListItemButton>
         </Link>
-        <ListItemButton className="buttonItem">
-            <ListItemIcon className="itemSet">
-                <LayersIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Integrations"/>
-        </ListItemButton>
+        {/*<ListItemButton className="buttonItem">*/}
+        {/*    <ListItemIcon className="itemSet">*/}
+        {/*        <LayersIcon/>*/}
+        {/*    </ListItemIcon>*/}
+        {/*    <ListItemText primary="Integrations"/>*/}
+        {/*</ListItemButton>*/}
     </React.Fragment>
 );
 
