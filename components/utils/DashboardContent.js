@@ -173,7 +173,11 @@ function DashboardContent(props) {
                             component="main"
                             sx={{
                                 backgroundColor: '#121212',
+
                                 backgroundImage: `url("https://img.freepik.com/premium-vector/abstract-background-with-spotify-logo_52683-26645.jpg?w=1500")`,
+
+                                
+
                                 flexGrow: 1,
                                 height: '90vh',
                                 overflowY: 'auto',
