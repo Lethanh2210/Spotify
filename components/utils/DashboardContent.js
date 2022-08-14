@@ -173,6 +173,7 @@ function DashboardContent(props) {
                             component="main"
                             sx={{
                                 backgroundColor: '#121212',
+                                backgroundImage: `url("https://i.ytimg.com/vi/4l6J5jhRgos/maxresdefault.jpg")`,
                                 flexGrow: 1,
                                 height: '90vh',
                                 overflow: 'auto',
