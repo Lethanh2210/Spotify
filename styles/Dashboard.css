@@ -83,6 +83,12 @@
 .css-1wlen6-MuiPaper-root-MuiTableContainer-root{
     background-color: black  !important;
 }
+.css-1227i0t-MuiDrawer-docked .MuiDrawer-paper{
+    border: none !important;
+}
+.css-rwtssa-MuiDrawer-docked .MuiDrawer-paper{
+    border: none !important;
+}
 
 
 
