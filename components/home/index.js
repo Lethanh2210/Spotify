@@ -41,6 +41,7 @@ function App() {
                     }}>
                         List Artist
                     </Typography>
+                    {/*<hr className="text-white"/>*/}
                     <Grid container mt={0} ml={5}>
                         {authors.map((author, index) => (
                             <Grid item xs={2} key={index} mt={3}>
@@ -60,6 +61,7 @@ function App() {
                     }}>
                         Location
                     </Typography>
+
                     <Grid container mt={0} ml={5}>
                         {locations.map((location, index) => (
                             <Grid item xs={2} key={index} mt={3}>
