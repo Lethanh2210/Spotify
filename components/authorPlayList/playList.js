@@ -72,7 +72,7 @@ function PlayList(props) {
     return (
         <div className="bg-black text-gray-300 h-90 p-10 ">
             <div className="flex">
-                <img className="mr-6 h-60" src={DataSongs[0].links.images[0].url}/>
+                <img className="mr-6 h-60" src={authorSong[0].links.images[0].url}/>
                     <div className="flex flex-col justify-center">
 
                         <h4 className="mt-0 mb-2 uppercase text-gray-500 tracking-widest text-xs">Playlist</h4>
@@ -99,25 +99,16 @@ function PlayList(props) {
                     <div className="p-2 w-full">Title</div>
                     <div className="p-2 w-full">Artist</div>
                     <div className="p-2 w-full">Album</div>
-                    <div className="p-2 w-12 flex-shrink-0 text-right">:stopwatch:</div>
+                    <div className="p-2 w-12 flex-shrink-0 text-right">time</div>
                 </div>
                 {authorSong.map((row, index) => (
-                    // <StyledTableRow hover variant="body"  key={index} onClick={() => handlePlaySong(row.id)}
-                    //                 selected={song1 === row.id}
-                    //                 className={classes.StyledTableRow}
-                    //
-                    // >
-                    //     <StyledTableCell align="center">{index + 1}</StyledTableCell>
-                    //     <StyledTableCell align="left">{row.name}</StyledTableCell>
-                    //     <StyledTableCell align="center">{row.author}</StyledTableCell>
-                    // </StyledTableRow>
                     <div className="flex border-b border-gray-800 hover:bg-gray-800" key={index} onClick={() => handlePlaySong(row.id)}>
                     <div className="p-3 w-8 flex-shrink-0"></div>
                     <div className="p-3 w-8 flex-shrink-0"></div>
                     <div className="p-3 w-full">{row.name}</div>
                     <div className="p-3 w-full">{row.author}</div>
                     <div className="p-3 w-full">Spotify</div>
-                    <div className="p-3 w-12 flex-shrink-0 text-right">5:35</div>
+                    <div className="p-3 w-12 flex-shrink-0 text-right">none</div>
                     </div>
                 ))}
 

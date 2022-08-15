@@ -3,18 +3,22 @@ import axios from "axios";
 import {CCard, CCardBody, CCardImage, CCardText} from "@coreui/react";
 import {Grid} from "@mui/material";
 import Link from "next/link";
+import {useContext} from "react";
+import {Location} from "../Context";
 
 export default function Search() {
     const [search, setSearch] = useState('');
-    const [token, setToken] = useState('');
+    // const [token, setToken] = useState('');
     const [artists, setArtists] = useState([]);
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
 
-    useEffect(() => {
-        let token = window.localStorage.getItem("token");
-        setToken(token)
-    }, [token])
+    const {token, setToken} = useContext(Location)
+
+    // useEffect(() => {
+    //     let token = window.localStorage.getItem("token");
+    //     setToken(token)
+    // }, [token])
     useEffect(async () => {
         setIsLoading(true)
         const {data} = await axios.get("https://api.spotify.com/v1/browse/categories?limit=48&offset=0", {
@@ -23,14 +27,9 @@ export default function Search() {
                 'Content-Type': 'application/json',
             },
         })
-        console.log(categories, '======')
-        if(data.length > 0){
-
-        }
-        setCategories(data.categories.items)
-        setIsLoading(false)
+            setCategories(data.categories.items)
+            setIsLoading(false)
     }, [])
-
     const searchArtists = async (e) => {
         setIsLoading(true)
         setSearch(e.target.value)
@@ -45,7 +44,7 @@ export default function Search() {
             }
         })
         console.log(data)
-        if(data.length > 0){
+        if(data){
             setArtists(data.artists.items)
             setIsLoading(false)
         }
