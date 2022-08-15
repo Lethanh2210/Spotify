@@ -103,7 +103,7 @@ function PlayList(props) {
                 </div>
                 {authorSong.map((row, index) => (
                     <div className="flex border-b border-gray-800 hover:bg-gray-800" key={index} onClick={() => handlePlaySong(row.id)}>
-                    <div className="p-3 w-8 flex-shrink-0"></div>
+                    <div className="p-3 w-8 flex-shrink-0">{index + 1}</div>
                     <div className="p-3 w-8 flex-shrink-0"></div>
                     <div className="p-3 w-full">{row.name}</div>
                     <div className="p-3 w-full">{row.author}</div>

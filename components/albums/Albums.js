@@ -39,7 +39,7 @@ export default function () {
         setTracks(data.items)
         setIsLoading(false)
     }, [idAlbum])
-    console.log(tracks)
+
     if (isLoading) return (
         <>
             <div role="status">
@@ -57,6 +57,7 @@ export default function () {
             </div>
         </>
     )
+
 
     return(
         <div className="detail">
@@ -90,7 +91,11 @@ export default function () {
                     </div>
                     {tracks.map((track,index)=>{
                         return(
-                            <div key={index} className="flex border-b border-gray-800 hover:bg-gray-800">
+
+                            <div className="flex border-b border-gray-800 hover:bg-gray-800" key={index}>
+
+                           
+
                                 <div className="p-3 w-8 flex-shrink-0">▶</div>
                                 <div className="p-3 w-8 flex-shrink-0">♫</div>
                                 <div className="p-3 w-full">{track.name}</div>

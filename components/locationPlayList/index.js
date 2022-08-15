@@ -8,7 +8,7 @@ import {Location} from "../Context";
 
 function LocationPlayList() {
     const {locationSong, imageLocation} = useContext(Location);
-    console.log(imageLocation);
+
 
     return (
         <div>

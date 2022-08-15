@@ -45,7 +45,7 @@ export default function Detail() {
         setAlbum(data.items)
     }, [idArtist])
 
-    console.log(artist)
+
 
     if (isLoading) return (
         <>

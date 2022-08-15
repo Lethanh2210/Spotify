@@ -61,7 +61,6 @@ const styles = (theme) => ({
     const {DataSongs, handleSetSong, currentList,song} = useContext(AudioSong);
     const [textColor, setTextColor] = useState("black");
 
-    console.log(song, "playlist");
 
     const handlePlaySong = (idSong) => {
         handleSetSong(idSong);

@@ -40,8 +40,14 @@ export default function Search() {
                 type: "track,artist",
             }
         })
-        setArtists(data.artists.items)
-        setIsLoading(false)
+
+
+        if(data){
+            setArtists(data.artists.items)
+            setIsLoading(false)
+        }
+
+      
     }
 
     const renderCategories = () => {
