@@ -106,14 +106,15 @@ function DashboardContent(props) {
 
     return (
             <ThemeProvider theme={mdTheme}>
-                <Box sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex' }} >
                     <CssBaseline />
-                    <AppBar position="absolute" open={open}>
+                    <AppBar position="absolute" open={open} >
                         <Toolbar
                             sx={{
                                 pr: '24px',
                             }}
                             style={{ backgroundColor: "black"}}
+
                         >
                             <IconButton
                                 edge="start"
@@ -139,9 +140,7 @@ function DashboardContent(props) {
                                 </div>
                             </Typography>
                             <IconButton color="inherit">
-                                <Badge badgeContent={4} color="secondary">
-                                    <NotificationsIcon />
-                                </Badge>
+
                             </IconButton>
                         </Toolbar>
                     </AppBar>
@@ -154,6 +153,7 @@ function DashboardContent(props) {
                                     justifyContent: 'flex-end',
                                     px: [1],
                                     backgroundColor: 'black',
+
                                 }}
                             >
                                 <BasicMenu/>
@@ -162,9 +162,9 @@ function DashboardContent(props) {
                                     </IconButton>
                             </Toolbar>
 
-                            <List component="nav" style={{color: '#b3b3b3', backgroundColor: "black"}}>
+                            <List component="nav" style={{color: '#b3b3b3', backgroundColor: "black", overflowX: 'hidden', }}>
                                 {mainListItems}
-                                {secondaryListItems}
+                                {/*{secondaryListItems}*/}
                             </List>
                         </Drawer>
                     </div>
@@ -172,9 +172,15 @@ function DashboardContent(props) {
                             component="main"
                             sx={{
                                 backgroundColor: '#121212',
+
+                                backgroundImage: `url("https://img.freepik.com/premium-vector/abstract-background-with-spotify-logo_52683-26645.jpg?w=1500")`,
+
+                                
+
                                 flexGrow: 1,
                                 height: '90vh',
-                                overflow: 'auto',
+                                overflowY: 'auto',
+
                             }}
                         >
                             <Toolbar />
