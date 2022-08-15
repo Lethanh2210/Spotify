@@ -136,7 +136,6 @@ function DashboardContent(props) {
                             >
                                 <div>
                                     <Image src={Spotify} alt="1111" width={100} height={30}/>
-                                    {path==='/search' ? <span style={{color:'white'}}>thinh</span> : <></> }
                                 </div>
                             </Typography>
                             <IconButton color="inherit">
