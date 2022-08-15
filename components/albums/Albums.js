@@ -94,7 +94,7 @@ export default function () {
 
                             <div className="flex border-b border-gray-800 hover:bg-gray-800" key={index}>
 
-                           
+
 
                                 <div className="p-3 w-8 flex-shrink-0">▶</div>
                                 <div className="p-3 w-8 flex-shrink-0">♫</div>
