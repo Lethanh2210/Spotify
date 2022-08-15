@@ -173,7 +173,7 @@ function DashboardContent(props) {
                             sx={{
                                 backgroundColor: '#121212',
 
-                                backgroundImage: `url("https://img.freepik.com/premium-vector/abstract-background-with-spotify-logo_52683-26645.jpg?w=1500")`,
+                                backgroundImage: `url("https://pbs.twimg.com/media/DdYT2TGV0AA0p3G?format=jpg&name=4096x4096")`,
 
                                 
 
