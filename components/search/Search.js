@@ -24,6 +24,9 @@ export default function Search() {
             },
         })
         console.log(categories, '======')
+        if(data.length > 0){
+
+        }
         setCategories(data.categories.items)
         setIsLoading(false)
     }, [])
@@ -42,8 +45,10 @@ export default function Search() {
             }
         })
         console.log(data)
-        setArtists(data.artists.items)
-        setIsLoading(false)
+        if(data.length > 0){
+            setArtists(data.artists.items)
+            setIsLoading(false)
+        }
     }
 
     const renderCategories = () => {
@@ -66,8 +71,8 @@ export default function Search() {
         )
         return (
             <Grid key="categories" container mt={0} ml={-5}>
-                {categories.map((category, index) => (
-                    <div key={index}>
+                {categories.map((category) => (
+                    <div key={category.id}>
                         <Link passHref href={`/genre/${category.id}`}>
                             <Grid  item xs={1.5} ml={5} mt={3}>
 
@@ -117,8 +122,8 @@ export default function Search() {
         return (
             <Grid key="artists" container mt={0} ml={-5}>
                 {artists.map((artist, index) => (
-                    <Link passHref href={`/detail/${artist.id}`}>
-                        <Grid key={index} item xs={1.5} ml={5} mt={3} zeroMinWidth>
+                    <Link passHref href={`/detail/${artist.id}`} key={artist.id}>
+                        <Grid  item xs={1.5} ml={5} mt={3} zeroMinWidth>
                             <CCard style={{
                                 width: '165px',
                                 cursor: 'pointer',
