@@ -45,4 +45,8 @@ ul {
 .playlist-image {
     max-width: 200px;
 }
-
+.artist-name{
+    font-size: 6rem;
+    font-weight: bold;
+    color: #fff;
+}

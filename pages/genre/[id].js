@@ -1,9 +1,9 @@
-import Detail from "../../components/detail";
+import Genre from "../../components/genre/index";
 
 export default function App() {
     return (
         <div >
-            <Detail/>
+            <Genre/>
         </div>
     )
 }
