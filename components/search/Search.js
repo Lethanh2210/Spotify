@@ -30,6 +30,7 @@ export default function Search() {
             setCategories(data.categories.items)
             setIsLoading(false)
     }, [])
+
     const searchArtists = async (e) => {
         setIsLoading(true)
         setSearch(e.target.value)
