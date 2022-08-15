@@ -23,11 +23,8 @@ export default function Search() {
                 'Content-Type': 'application/json',
             },
         })
-        if(data.length > 0){
-
-        }
-        setCategories(data.categories.items)
-        setIsLoading(false)
+            setCategories(data.categories.items)
+            setIsLoading(false)
     }, [])
 
     const searchArtists = async (e) => {
@@ -40,7 +37,7 @@ export default function Search() {
             },
             params: {
                 q: search,
-                type: "artist",
+                type: "track,artist",
             }
         })
         setArtists(data.artists.items)

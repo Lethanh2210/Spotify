@@ -52,8 +52,8 @@ export default function MyApp({Component, pageProps: {session, ...pageProps},}) 
     return (
         <SessionProvider session={session}>
             <AudioSong.Provider value={{song, handleSetSong, DataSongs, setCurrentList, currentList}}>
-                <Location.Provider value={{locationSong, handleSetLocationSong, setImageLocation, imageLocation}}>
-            <AuthorSong.Provider value={{handleSetAuthorSong, authorSong,idAlbums,setIdAlbums}}>
+                <Location.Provider value={{locationSong, handleSetLocationSong, setImageLocation, imageLocation,token,setToken}}>
+            <AuthorSong.Provider value={{handleSetAuthorSong, authorSong ,idAlbums,setIdAlbums}}>
             {token ? <Component {...pageProps} /> : <Login/> }
             </AuthorSong.Provider>
                 </Location.Provider>

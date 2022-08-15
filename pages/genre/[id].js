@@ -1,4 +1,4 @@
-import Genre from "../../components/genre/index";
+import Genre from "../../components/genre/GenrePlayList";
 
 export default function App() {
     return (
