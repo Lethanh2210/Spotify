@@ -174,9 +174,7 @@ function DashboardContent(props) {
                                 backgroundColor: '#121212',
 
                                 backgroundImage: `url("https://pbs.twimg.com/media/DdYT2TGV0AA0p3G?format=jpg&name=4096x4096")`,
-
-                                
-
+                                backgroundSize: '1400px 700px',
                                 flexGrow: 1,
                                 height: '90vh',
                                 overflowY: 'auto',
