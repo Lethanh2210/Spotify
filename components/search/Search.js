@@ -23,7 +23,6 @@ export default function Search() {
                 'Content-Type': 'application/json',
             },
         })
-        console.log(categories, '======')
         if(data.length > 0){
 
         }
@@ -41,14 +40,11 @@ export default function Search() {
             },
             params: {
                 q: search,
-                type: "track,artist",
+                type: "artist",
             }
         })
-        console.log(data)
-        if(data.length > 0){
-            setArtists(data.artists.items)
-            setIsLoading(false)
-        }
+        setArtists(data.artists.items)
+        setIsLoading(false)
     }
 
     const renderCategories = () => {
