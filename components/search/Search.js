@@ -43,7 +43,7 @@ export default function Search() {
                 type: "track,artist",
             }
         })
-        console.log(data)
+
         if(data){
             setArtists(data.artists.items)
             setIsLoading(false)

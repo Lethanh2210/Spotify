@@ -6,20 +6,15 @@ import {AuthorSong , AudioSong, Location} from "../Context"
 import DashboardContent from "../utils/DashboardContent";
 import Typography from "@mui/material/Typography";
 import {Grid} from "@mui/material";
-import authors from "../../data/author.json";
+
 
 import CardPlayList from "./cardPlayList";
 
 export default function Genre() {
     const router = useRouter();
-    // const [token, setToken] = useState('');
     const [playList, setPlayList] = useState();
     const {token, setToken} = useContext(Location)
 
-    // useEffect(() => {
-    //     let token = window.localStorage.getItem("token");
-    //     setToken(token)
-    // }, [token])
 
     useEffect(async () =>  {
         const {data} = await axios.get(`https://api.spotify.com/v1/browse/categories/${router.query.id}/playlists`, {
@@ -34,7 +29,7 @@ export default function Genre() {
         }
     }, [])
 
-    console.log(playList);
+
 
 
 

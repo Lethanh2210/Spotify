@@ -53,3 +53,7 @@ ul {
 .detail{
     width: 1200px;
 }
+
+.lol:hover{
+    cursor: pointer;
+}
