@@ -45,10 +45,13 @@ export default function Search() {
             }
         })
 
+
         if(data){
             setArtists(data.artists.items)
             setIsLoading(false)
         }
+
+
     }
 
     const renderCategories = () => {
