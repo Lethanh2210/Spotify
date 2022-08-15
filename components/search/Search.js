@@ -69,21 +69,23 @@ export default function Search() {
                 {categories.map((category, index) => (
                     <div key={index}>
                         <Link passHref href={`/genre/${category.id}`}>
-                            <Grid key={index} item xs={1.5} ml={5} mt={3}>
+                            <Grid  item xs={1.5} ml={5} mt={3}>
 
                                 <div
-                                    key={index}
+
                                     className="w-[150px] h-[160px] rounded-[50px] overflow-hidden relative text-white/80 cursor-pointer hover:scale-105 hover:text-white/100 transition duration-200 ease-out group "
                                 >
                                     <img
                                         src={category.icons[0].url}
                                         alt="hello"
                                         className="h-120 w-120 absolute inset-0 object-cover rounded-[50px] opacity-80 group-hover:opacity-100"
+
                                     />
-                                    <div className="absolute bottom-10 inset-x-0 ml-4 flex items-center space-x-3.5">
-                                        <div className="text-[20px]">
+                                    <div className="absolute bottom-10 inset-x-0 ml-4 flex items-center space-x-3.5" >
+                                        <div className="text-[20px]" >
                                             <h4 key="categoryName"
-                                                className="font-extrabold truncate w-44">{category.name}</h4>
+                                                className="font-extrabold truncate w-44">{category.name}
+                                            </h4>
                                         </div>
                                     </div>
                                 </div>
