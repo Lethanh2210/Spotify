@@ -18,6 +18,7 @@ export default function MyApp({Component, pageProps: {session, ...pageProps},}) 
     const [currentList, setCurrentList] = useState([])
     const [locationSong, setLocationSong] = useState([])
     const [imageLocation, setImageLocation] = useState()
+    const [idAlbums, setIdAlbums] = useState('')
     const handleSetAuthorSong = (authorName) =>{
         const song = DataSongs.filter(song => song.author.includes(authorName))
         setAuthorSong(song);
@@ -52,7 +53,7 @@ export default function MyApp({Component, pageProps: {session, ...pageProps},}) 
         <SessionProvider session={session}>
             <AudioSong.Provider value={{song, handleSetSong, DataSongs, setCurrentList, currentList}}>
                 <Location.Provider value={{locationSong, handleSetLocationSong, setImageLocation, imageLocation,token,setToken}}>
-            <AuthorSong.Provider value={{handleSetAuthorSong, authorSong}}>
+            <AuthorSong.Provider value={{handleSetAuthorSong, authorSong ,idAlbums,setIdAlbums}}>
             {token ? <Component {...pageProps} /> : <Login/> }
             </AuthorSong.Provider>
                 </Location.Provider>

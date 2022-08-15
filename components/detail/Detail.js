@@ -2,21 +2,27 @@ import {useEffect} from "react";
 import axios from "axios";
 import {useState} from "react";
 import id from "faker/lib/locales/id_ID";
+import Link from "next/link";
 
 export default function Detail() {
+    const typeBtn = ['albums','topTrack']
     const [token, setToken] = useState('');
     const [idArtist, setIdArtist] = useState('');
     const [album, setAlbum] = useState([]);
     const [artist, setArtist] = useState({});
     const [isLoading, setIsLoading] = useState(false)
+    const [type,setType] = useState('albums')
+
     useEffect(() => {
         let token = window.localStorage.getItem("token");
         setToken(token)
     }, [token])
+
     useEffect(() => {
         const id = window.location.href.split('/')[4];
         setIdArtist(id)
     }, [idArtist])
+
     useEffect(async () => {
         setIsLoading(true)
         const {data} = await axios.get(`https://api.spotify.com/v1/artists/${idArtist}/`, {
@@ -38,7 +44,9 @@ export default function Detail() {
         })
         setAlbum(data.items)
     }, [idArtist])
+
     console.log(artist)
+
     if (isLoading) return (
         <>
             <div role="status">
@@ -58,60 +66,55 @@ export default function Detail() {
     )
     return (
         <div>
-            {/*<img src={artist.images[0] .url} className="img-avatar" alt="no"/>*/}
-            {/*<h1 className="artist-name">{artist.name ? artist.name : "nothing"}</h1>*/}
-            {/*<span className="text-4xl text-white">Follower: {artist.name ? artist.followers.total : "nothing"}</span>*/}
-            {/*<hr className="text-white"/>*/}
-            <div class="bg-black text-gray-300 min-h-screen detail p-10">
+            <div className="bg-black text-gray-300 min-h-screen detail p-10">
 
-                <div class="flex">
-                    <img className="mr-6 w-52 h-52" src={artist.images[0].url} alt=""/>
-                    <div class="flex flex-col justify-center">
-                        <h4 class="mt-0 mb-2 uppercase text-gray-500 tracking-widest text-xs">Artist</h4>
-                        <h1 class="mt-0 mb-2 text-white text-4xl">{artist.name ? artist.name : "nothing"}</h1>
+                <div className="flex">
+                    <img className="mr-6 w-52 h-52" src={artist.name ? artist?.images[0]?.url : ""} alt=""/>
+                    <div className="flex flex-col justify-center">
+                        <h4 className="mt-0 mb-2 uppercase text-gray-500 tracking-widest text-xs">Artist</h4>
+                        <h1 className="mt-0 mb-2 text-white text-4xl">{artist.name ? artist.name : "nothing"}</h1>
 
-                        <p class="text-gray-600 mb-2 text-sm">With J. Cole, Quavo, Ty Dollar $ign</p>
-                        <p class="text-gray-600 text-sm">Created by <a>Spotify</a> - 50 songs, 3 hr 2 min</p>
+                        <p className="text-gray-600 mb-2 text-sm">With J. Cole, Quavo, Ty Dollar $ign</p>
+                        <p className="text-gray-600 text-sm">Created by <a>Spotify</a> - 50 songs, 3 hr 2 min</p>
                     </div>
                 </div>
 
-                <div class="mt-6 flex justify-between">
-                    <div class="flex">
+                <div className="mt-6 flex justify-between">
+                    <div className="flex">
                         <button className="mr-2 bg-green-500 text-green-100 block py-2 px-8 rounded-full">Play</button>
                         <button className="mr-2 border border-white block p-2 rounded-full">Top tracks
                         </button>
                         <button className="mr-2 border border-white block p-2 rounded-full">Albums</button>
                     </div>
-                    <div class="text-gray-600 text-sm tracking-widest text-right">
-                        <h5 class="mb-1">Followers</h5>
+                    <div className="text-gray-600 text-sm tracking-widest text-right">
+                        <h5 className="mb-1">Followers</h5>
                         <p>{artist.name ? artist.followers.total : "nothing"}</p>
                     </div>
                 </div>
 
-                <div class="mt-10">
-                    <div class="flex text-gray-600">
-                        <div class="p-2 w-8 flex-shrink-0"/>
-                        <div class="p-2 w-8 flex-shrink-0"/>
-                        <div class="p-2 w-full">Title</div>
-                        <div class="p-2 w-full">Artist</div>
-                        <div class="p-2 w-full">Album</div>
-                        <div class="p-2 w-12 flex-shrink-0 text-right">Tracks</div>
+                <div className="mt-10">
+                    <div className="flex text-gray-600">
+                        <div className="p-2 w-8 flex-shrink-0"/>
+                        <div className="p-2 w-8 flex-shrink-0"/>
+                        <div className="p-2 w-full">Title</div>
+                        <div className="p-2 w-full">Artist</div>
+                        <div className="p-2 w-full">Album</div>
+                        <div className="p-2 w-12 flex-shrink-0 text-right">Tracks</div>
                     </div>
                     {album.map((alb, index) => {
                         return(
-                            <div key={index} class="flex border-b border-gray-800 hover:bg-gray-800">
-                                <div class="p-3 w-8 flex-shrink-0">▶️</div>
-                                <div class="p-3 w-8 flex-shrink-0">❤️</div>
-                                <div class="p-3 w-full">{alb.name}</div>
-                                <div class="p-3 w-full">{alb.artists[0].name}</div>
-                                <div class="p-3 w-full">{alb.album_type}</div>
-                                <div class="p-3 w-12 flex-shrink-0 text-right">{alb.total_tracks}</div>
+                            <Link passHref href={`/albums/${alb.id}`}>
+                            <div key={index} className="flex border-b border-gray-800 hover:bg-gray-800">
+                                <div className="p-3 w-8 flex-shrink-0">▶️</div>
+                                <div className="p-3 w-8 flex-shrink-0">❤️</div>
+                                <div className="p-3 w-full">{alb.name}</div>
+                                <div className="p-3 w-full">{alb.artists[0].name}</div>
+                                <div className="p-3 w-full">{alb.album_type}</div>
+                                <div className="p-3 w-12 flex-shrink-0 text-right">{alb.total_tracks}</div>
                             </div>
+                            </Link>
                         )
                     })}
-
-
-
                 </div>
             </div>
         </div>
